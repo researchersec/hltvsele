@@ -29,18 +29,24 @@ jobs:
         
     - name: Pull Docker image
       run: docker pull flaresolverr/flaresolverr
-      #docker pull therealbix/flaresolverr #old fix
-      #ghcr.io/flaresolverr/flaresolverr:v3.3.17
 
     - name: Run FlareSolverr
       run: docker run -d --name flaresolverr-container -p 8191:8191 flaresolverr/flaresolverr
-      #ghcr.io/flaresolverr/flaresolverr:v3.3.16
 
     - name: Wait for FlareSolverr to start
       run: sleep 20
 
     - name: Run scraper
       run: python scraper.py
-      
+
+    - name: Install unrar
+      run: sudo apt-get update && sudo apt-get install -y unrar
+
+    - name: Extract RAR file
+      run: |
+        cd downloads
+        unrar x -y *.rar
+        cd ..
+
     - name: Show files
       run: ls downloads
