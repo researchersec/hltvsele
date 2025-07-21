@@ -26,6 +26,18 @@ jobs:
 
     - name: Set up Chrome
       uses: browser-actions/setup-chrome@v1
+        
+    - name: Pull Docker image
+      run: docker pull flaresolverr/flaresolverr
+      #docker pull therealbix/flaresolverr #old fix
+      #ghcr.io/flaresolverr/flaresolverr:v3.3.17
+
+    - name: Run FlareSolverr
+      run: docker run -d --name flaresolverr-container -p 8191:8191 flaresolverr/flaresolverr
+      #ghcr.io/flaresolverr/flaresolverr:v3.3.16
+
+    - name: Wait for FlareSolverr to start
+      run: sleep 20
 
     - name: Run scraper
       run: python scraper.py
