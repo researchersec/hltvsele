@@ -121,7 +121,7 @@ def get_materials_data(url, download_dir="downloads", username=None, password=No
         print(f"Navigating to: {url}")
         driver.get(url)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
-        time.sleep(400)  # Wait for JavaScript redirects
+        time.sleep(120)  # Wait for JavaScript redirects
 
         # Check for redirect via current_url
         final_url = url
