@@ -399,7 +399,7 @@ def main():
     )
     
     downloader = HLTVDownloader(config)
-    url = "https://www.hltv.org/download/demo/98531"
+    url = "https://www.hltv.org/download/demo/98547"
     
     downloaded_file = downloader.download_demo(url)
     
