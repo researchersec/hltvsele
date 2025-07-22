@@ -3,3 +3,4 @@ beautifulsoup4
 chromedriver-autoinstaller
 requests
 undetected-chromedriver
+tqdm
